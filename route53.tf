@@ -1,0 +1,20 @@
+resource "aws_route53_zone" "poc_route53_zone" {
+  name = "sasintpoc.work.gd"
+  tags = {
+    Environment = "test"
+  }
+}
+
+resource "aws_route53_record" "route_poc" {
+  zone_id = aws_route53_zone.poc_route53_zone.id
+  name = "sasintpoc.work.gd"
+  type    = "A"
+  ttl     = "300"
+  records = ["our_cloudfront_distribution_domain_name"]
+
+  alias {
+    name                   = aws_cloudfront_distribution.cdnpocjava.domain_name
+    zone_id                = aws_cloudfront_distribution.cdnpocjava.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
