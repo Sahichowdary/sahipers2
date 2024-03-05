@@ -1,22 +1,22 @@
 variable "region" {
     description = "used to specify the region"
-    default = "us-west-2"
+    default = "ap-south-1"
 }
 
 variable "availability_zone" {
-    default = "us-west-2a"
+    default = "ap-south-1a"
 }
 
 variable "availability_zone2" {
-    default = "us-west-2b"
+    default = "uap-south-1b"
 }
 
 variable "eks_cluster_role" {
-    default = "arn:aws:iam::036965198866:role/AmazonEKSClusterRole"
+    default = "aws_iam_role.EKSClusterRole2.arn"
 }
 
 variable "eks_node_role" {
-    default = "arn:aws:iam::036965198866:role/EKS-Node-Group-role"
+    default = "aws_iam_role.AmazonEKSNodeRole2.arn"
 }
 
 variable "eks_encryption_key" {
